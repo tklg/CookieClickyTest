@@ -54,6 +54,7 @@ public class game extends JPanel implements Runnable {
 	public int time = 0;
 	public int seconds = 0;
 	public int minutes = 0;
+	public int cookieIncCount;
 	
 	public boolean objectsDefined = false;
 	private boolean running = true;
@@ -242,8 +243,10 @@ public class game extends JPanel implements Runnable {
 			while(running) {
 				if(inGame) {
 					
+					cookieIncCount = ((lvl1multiplier * lvl1owned) + (lvl2multiplier * lvl2owned) + (lvl3multiplier * lvl3owned) + (lvl4multiplier * lvl4owned) + (lvl5multiplier * lvl5owned));
+					
 					//cookies += ((lvl1multiplier * lvl1owned) + (lvl2multiplier * lvl2owned) + (lvl3multiplier * lvl3owned) + (lvl4multiplier * lvl4owned) + (lvl5multiplier * lvl5owned));
-					if (((lvl1multiplier * lvl1owned) + (lvl2multiplier * lvl2owned) + (lvl3multiplier * lvl3owned) + (lvl4multiplier * lvl4owned) + (lvl5multiplier * lvl5owned)) != 0) {
+					if (cookieIncCount != 0) {
 						cookies++;
 					}
 					
@@ -288,10 +291,10 @@ public class game extends JPanel implements Runnable {
 		public void fpsSetter() {
 			try {
 				
-				if (((lvl1multiplier * lvl1owned) + (lvl2multiplier * lvl2owned) + (lvl3multiplier * lvl3owned) + (lvl4multiplier * lvl4owned) + (lvl5multiplier * lvl5owned)) == 0) {
+				if (cookieIncCount == 0) {
 					game.sleep(fps/1);// + (lvl1multiplier * lvl1owned) + (lvl2multiplier * lvl2owned) + (lvl3multiplier * lvl3owned) + (lvl4multiplier * lvl4owned) + (lvl5multiplier * lvl5owned))); //only for 1 second, because this isn't really a game... maybe 100th of a second
 				} else {
-					game.sleep(fps/((lvl1multiplier * lvl1owned) + (lvl2multiplier * lvl2owned) + (lvl3multiplier * lvl3owned) + (lvl4multiplier * lvl4owned) + (lvl5multiplier * lvl5owned)));
+					game.sleep(fps/cookieIncCount);
 				}
 			}
 				catch(Exception e) {
