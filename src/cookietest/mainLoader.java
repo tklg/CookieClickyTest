@@ -15,7 +15,7 @@ public class mainLoader {
 	f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	f.setResizable(false);
 	f.setSize(width, height);
-	f.setTitle("CookieClickerTest " + ver);
+	f.setTitle("CookieClickyTest " + ver);
 	f.setLocationRelativeTo(null);
 	}
 	

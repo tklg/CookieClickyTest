@@ -202,7 +202,7 @@ public class game extends JPanel implements Runnable {
 					g.drawString("You can buy stuff to press space for you with cookies.", 10, 135);
 					//Time inGame
 				 	g.setColor(Color.CYAN);
-					g.drawString("Cookies: " + cookies, 10, 20);
+					g.drawString("Cookies: " + cookies + " (" + cookieIncCount + " per second)", 10, 20);
 					
 					//Toggleables
 					if(!inGame) {
